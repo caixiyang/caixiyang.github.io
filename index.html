@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <title>微金所-C</title>
+		<link rel="shortcut icon" href="favicon.ico"/>
+	    <!-- Bootstrap -->
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	    <!--[if lt IE 9]>
+	    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+	    <![endif]-->
+ 	</head>
+ 	<body>
+ 		<!--头部-->
+ 		<header class="container-fluid header hidden-md hidden-sm hidden-xs">
+ 			<div class="container">
+ 				<div class="row">
+ 					<div class="col-lg-2 bor-r">
+ 						<a href="#" class="phone_app">
+ 							<span class="wjs_icon wjs_icon_phone"></span>
+	 						<span>手机微金所</span>
+	 						<span class="glyphicon glyphicon-chevron-down"></span>
+	 						<img src="images/app-qrcode.jpg"/>
+ 						</a>
+ 						
+ 					</div>
+ 					<div class="col-lg-5 bor-r">
+ 						<span class="wjs_icon wjs_icon_tel"></span>
+ 						<span>4006-89-4006（服务时间：9:00~21:00） 联系在线客服</span>
+ 					</div>
+ 					<div class="col-lg-3 bor-r">
+ 						<a href="#" class="m_r">常见问题</a>
+ 						<a href="#">财富问答</a>
+ 					</div>
+ 					<div class="col-lg-2">
+ 						<a href="#" class="btn btn-danger btn-xs m_r">免费注册</a>
+ 						<a href="#">登录</a>
+ 					</div>
+ 				</div>
+ 			</div> 			
+ 		</header>
+ 		<!--导航栏-->
+ 		<nav class="navbar navbar-default headnav">
+ 			<div class="container">
+ 				<div class="navbar-header">
+ 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+ 		        <span class="sr-only">Toggle navigation</span>
+ 		        <span class="icon-bar"></span>
+ 		        <span class="icon-bar"></span>
+ 		        <span class="icon-bar"></span>
+ 		      </button>
+ 					<a class="navbar-brand" href="#">
+ 						<span class="wjs_icon wjs_icon_logo"></span>
+ 						<span class="wjs_icon wjs_icon_word"></span>
+ 					</a>
+ 				</div>
+ 				<div class="collapse navbar-collapse navcon" id="bs-example-navbar-collapse-1">
+ 					<ul class="nav navbar-nav">
+ 						<li class="active1">
+ 							<a href="#">我要投资 <span class="sr-only">(current)</span></a>
+ 						</li>
+ 						<li>
+ 							<a href="#">我要投资</a>
+ 						</li>
+ 						<li>
+ 							<a href="#">我要投资</a>
+ 						</li>
+ 						<li>
+ 							<a href="#">我要投资</a>
+ 						</li>
+ 						<li>
+ 							<a href="#">我要投资</a>
+ 						</li>
+ 						<li>
+ 							<a href="#">我要投资</a>
+ 						</li>						
+ 					</ul>
+ 					<ul class="nav navbar-nav navbar-right">
+ 						<li>
+ 							<a href="#">Link</a>
+ 						</li>						
+ 					</ul>
+ 				</div>
+ 			</div>
+ 		</nav>		
+ 		<!--轮播图-->
+ 		<div id="sliderbanner" class="carousel slide" data-ride="carousel">
+ 			<!-- Indicators -->
+ 			<ol class="carousel-indicators" id="focusbox">				
+ 			</ol>
+ 			<div class="carousel-inner" role="listbox" id="inner">				
+ 			</div>
+ 			<a class="left carousel-control" href="#sliderbanner" role="button" data-slide="prev">
+ 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+ 				<span class="sr-only">Previous</span>
+ 			</a>
+ 			<a class="right carousel-control" href="#sliderbanner" role="button" data-slide="next">
+ 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+ 				<span class="sr-only">Next</span>
+ 			</a>
+ 		</div>
+ 		<script id="sliderWrapper" type="text/template">
+ 			<%for(var i=0;i<data.length;i++){%>
+ 				<div class="<%=(i==0?'item active':'item')%>" >
+ 				<%if(isMobile){%>
+ 					<a href="" class="smallimg"><img src="<%=data[i].img%>"/></a>
+ 				<%}else{%>
+ 					<a href="#" class="bigimg" style="background-image:<%=data[i].background%>;"></a>
+ 				<%}%> 					
+ 				</div>
+ 			<%}%>
+ 		</script>
+ 		<script id="focus" type="text/template">
+ 			<%for(var i=0;i<length;i++){%>
+ 				<li data-target="#sliderbanner" data-slide-to="<%=i%>" class="<%=(i==0?'active':'')%>"></li>
+ 			<%}%>
+ 		</script>		
+ 		<!--交易保障-->
+ 		<div class="container safe">
+ 			<div class="row">
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 				<div class="col-md-4 col-sm-2 hidden-xs">
+ 					<div class="media">
+ 						<div class="media-left media-middle">
+ 							<span class="wjs_icon wjs_icon_e934"></span>
+ 						</div>
+ 						<div class="media-body">
+ 							<h4 class="media-heading">支付交易保障</h4> 
+ 							<p>银联支付全程保障资金安全</p>
+ 						</div>					
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div> 		
+ 		<!--预约-->
+ 		<div class="container book">
+				<div class="pull-left">					
+				    <span class="wjs_icon wjs_icon_e93e info"></span>
+				    <span>现在有 273 人在排队，累计预约交易成功 7571 次。 什么是预约投标？</span>
+				    <span class="book_line ">立即预约</span>
+				</div>
+				<div class="pull-right">
+					<span class="wjs_icon wjs_icon_e928 vedio"></span>
+					<span>微金所企业宣传片</span>
+				</div>			
+			</div>
+ 		</div>
+ 		<!--产品交易-->
+ 		<div class="container product">	
+ 			<ul class="nav nav-tabs" role="tablist">
+ 				<li role="presentation" class="active">
+ 					<a href="#one" aria-controls="one" role="tab" data-toggle="tab">特别推荐</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#two" aria-controls="two" role="tab" data-toggle="tab">我要投资1</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#three" aria-controls="three" role="tab" data-toggle="tab">我要投资2</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#four" aria-controls="four" role="tab" data-toggle="tab">我要投资3</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#five" aria-controls="five" role="tab" data-toggle="tab">我要投资4</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#six" aria-controls="six" role="tab" data-toggle="tab">我要投资5</a>
+ 				</li>
+ 				<li role="presentation">
+ 					<a href="#seven" aria-controls="seven" role="tab" data-toggle="tab">我要投资6</a>
+ 				</li>
+ 			</ul> 		
+ 			<div class="tab-content product_con">
+ 				<div role="tabpanel" class="tab-pane active" id="one">
+ 					<div class="row">
+ 						<div class="col-lg-4 col-md-6 " >
+ 							<a href="#" id="col_w">
+ 								<div class="right">
+ 									<p>80<span class="little">%</span></p>
+ 								</div>
+ 								<div class="left">
+ 									<h3>新手体验0730期</h3>
+ 									<div class="row">
+ 										<div class="col-xs-6 ">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</a>														
+ 						</div>
+ 						<div class="col-lg-4 col-md-6 " >
+ 							<a href="#">
+ 								<div class="right">
+ 									<p>80<span class="little">%</span></p>
+ 								</div>
+ 								<div class="left">
+ 									<h3>新手体验0730期</h3>
+ 									<div class="row">
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</a>														
+ 						</div>
+ 						<div class="col-lg-4 col-md-6 " >
+ 							<a href="#">
+ 								<div class="right">
+ 									<p>80<span class="little">%</span></p>
+ 								</div>
+ 								<div class="left">
+ 									<h3>新手体验0730期</h3>
+ 									<div class="row">
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</a>														
+ 						</div>
+ 						<div class="col-lg-4 col-md-6 " >
+ 							<a href="#">
+ 								<div class="right">
+ 									<p>80<span class="little">%</span></p>
+ 								</div>
+ 								<div class="left">
+ 									<h3>新手体验0730期</h3>
+ 									<div class="row">
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 										<div class="col-xs-6">
+ 											<p>起投金额</p>
+ 											<p>0.1万</p>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</a>														
+ 						</div>
+ 					</div> 					
+ 				</div>
+ 				<div role="tabpanel" class="tab-pane" id="two">我要投资1</div>
+ 				<div role="tabpanel" class="tab-pane" id="three">我要投资2</div>
+ 				<div role="tabpanel" class="tab-pane" id="four">我要投资3</div>
+ 				<div role="tabpanel" class="tab-pane" id="five">我要投资4</div>
+ 				<div role="tabpanel" class="tab-pane" id="six">我要投资5</div>
+ 				<div role="tabpanel" class="tab-pane" id="seven">我要投资6</div>
+ 			</div> 		
+ 		</div>
+ 		<!--新闻资讯-->
+ 		<div class="container new">
+ 			<div class="row">
+ 				<div class="col-lg-2 col-lg-offset-2">
+ 					<h3>全部新闻</h3>
+ 				</div>
+ 				<div class="col-lg-1">
+ 					<ul class="nav new_menu" role="tablist">
+ 						<li role="presentation" class="active">
+ 							<a href="#a" aria-controls="a" role="tab" data-toggle="tab" class="wjs_icon wjs_icon_e934"></a>
+ 						</li>
+ 						<li role="presentation">
+ 							<a href="#b" aria-controls="b" role="tab" data-toggle="tab" class="wjs_icon wjs_icon_e934"></a>
+ 						</li>
+ 						<li role="presentation">
+ 							<a href="#c" aria-controls="c" role="tab" data-toggle="tab" class="wjs_icon wjs_icon_e934"></a>
+ 						</li>
+ 						<li role="presentation">
+ 							<a href="#d" aria-controls="d" role="tab" data-toggle="tab" class="wjs_icon wjs_icon_e934"></a>
+ 						</li>
+ 					</ul>
+ 				</div>
+ 				<div class="col-lg-7">
+ 					<div class="tab-content new-con">
+ 						<div role="tabpanel" class="tab-pane active" id="a" >特别推荐</div>
+ 						<div role="tabpanel" class="tab-pane" id="b">我要投资1</div>
+ 						<div role="tabpanel" class="tab-pane" id="c">我要投资2</div>
+ 						<div role="tabpanel" class="tab-pane" id="d">我要投资3</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		
+ 		
+	    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	    <script src="node_modules/art-template/lib/template-web.js" ></script>
+	    <script src="js/index.js" ></script>
+  	</body>
+</html>
